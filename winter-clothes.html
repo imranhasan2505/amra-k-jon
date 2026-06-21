@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>শীতবস্ত্র বিতরণ - আমরা ক'জন</title>
+    <!-- ফন্ট এবং আইকন লিংক -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- সিএসএস ফাইল লিংক -->
+    <link rel="stylesheet" href="winter-clothes.css">
+
+    <!-- মোডালটি যেন ঠিকঠাক ওপেন হয় তার জন্য প্রয়োজনীয় সিএসএস ব্যাকআপ -->
+    <style>
+        /* মোডাল ডিফল্ট অবস্থায় লুকিয়ে থাকবে */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        /* যখন জাভাস্ক্রিপ্ট active ক্লাস যুক্ত করবে তখন শো করবে */
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* মোডাল বক্সের ভেতরের অ্যানিমেশন */
+        .modal-box {
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ব্যাক বাটন নেভিগেশন -->
+    <div class="back-nav">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> হোমপেজে ফিরে যান</a>
+    </div>
+
+    <!-- ুইন্টার স্পেশাল হেডার ব্যানার -->
+    <section class="winter-header">
+        <h1>আমাদের <span class="highlight">শীতবস্ত্র বিতরণ</span> কার্যক্রম সমূহ</h1>
+        <p>বিগত বছরগুলোতে তীব্র শীতের মাঝে অসহায়, শীতার্ত ও পথচারী মানুষের মাঝে আমাদের করা কম্বল ও গরম কাপড় বিতরণ কর্মসূচীর বিবরণ এবং গ্যালারি নিচে দেওয়া হলো।</p>
+    </section>
+
+    <!-- শীতবস্ত্র ইভেন্ট গ্যালারি সেকশন -->
+    <section class="winter-gallery-section">
+        <div class="post-container">
+            
+            <!-- কার্ড ১: ২০২৬ -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter1.jpg" alt="কম্বল বিতরণ ২০২৬">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল ২০২৬</span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে শীতবস্ত্র বিতরণ সম্পন্ন।</p>
+                </div>
+            </div>
+
+            <!-- কার্ড ২: ২০২৫ -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter2.jpg" alt="কম্বল বিতরণ25">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল 2025 </span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে শীতবস্ত্র বিতরণ সম্পন্ন।</p>
+                </div>
+            </div>
+
+            <!-- কার্ড ৩: ২০২৪ -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter3.jpg" alt="কম্বল বিতরণ25">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল 2024 </span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ。 আমরা ক'জন এর আয়োজনে শীতবস্ত্র বিতরণ সম্পন্ন।</p>
+                </div>
+            </div>
+
+            <!-- কার্ড ৪: ২০২৩ (ধাপ ১) -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter4.jpg" alt="কম্বল বিতরণ25">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল 2023 </span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। আপনাদের দেয়া আর্থিক সহযোগিতায় আমরা ক'জন এর আয়োজনে ১ম ধাপে শীতবস্ত্র বিতরণ সফলভাবে শেষ হয়েছে। আল্লাহ চায় তো অতি শিঘ্রই ২য় ধাপে শীতবস্ত্র বিতরণ করবো। আপনাদের সহযোগিতা, আমাদের পরিশ্রম। পৌঁছে দিবে উষ্ণ ভালোবাসা শীতার্তের ঘরে।।</p>
+                </div>
+            </div>
+
+            <!-- কার্ড ৫: ২০২৩ (ধাপ ২) -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter5.jpg" alt="কম্বল বিতরণ25">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল 2023 </span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। আপনাদের দেয়া আর্থিক সহযোগিতায় আমরা ক'জন এর আয়োজনে ১ম ধাপে শীতবস্ত্র বিতরণ সফলভাবে শেষ হয়েছে। আল্লাহ চায় তো অতি শিঘ্রই ২য় ধাপে শীতবস্ত্র বিতরণ করবো। আপনাদের সহযোগিতা, আমাদের পরিশ্রম। পৌঁছে দিবে উষ্ণ ভালোবাসা শীতার্তের ঘরে।।</p>
+                </div>
+            </div>
+
+            <!-- কার্ড ৬: ২০২৩ (মাদ্রাসা ও এতিমখানা) -->
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="winter6.jpg" alt="কম্বল বিতরণ25">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-blanket"></i> শীতকাল 2023 </span>
+                    <h3>অসহায় ছিন্নমূল মানুষের মাঝে কম্বল বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। শীতার্ত মানুষের মাঝে আজ শীতবস্ত্র বিতরণ করা হয় মাস্টারপাড়া জামে মসজিদ প্রাঙ্গণে। আল ইক্বরা হাফেজিয়া মাদ্রাসা ও জিগাবাড়ী বাজার মাদ্রাসায় ৯ টি করে মোট ৪০ টি কম্বল ও ভ্যাসলিন বিতরণ করা হয়। আর্ত মানবতার সেবায় সব সময় রয়েছে আমরা ক'জন। আমাদের জন্য দোয়া করবেন যাতে পরবর্তী সকল কার্যক্রম সুন্দর ভাবে সম্পন্ন করতে পারি।।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- সমাপনী বার্তা সেকশন -->
+    <section class="winter-closing-section">
+        <div class="closing-content">
+            <div class="snowflake-icon"><i class="fa-regular fa-snowflake"></i></div>
+            <h2>শীতার্ত মানুষের পাশে দাঁড়াক মানবতা</h2>
+            <p>শীতের তীব্রতা যাদের জীবনকে বিপন্ন করে তোলে, তাদের পাশে একটু উষ্ণতার হাত বাড়িয়ে দেওয়া আমাদের নৈতিক দায়িত্ব। আপনাদের ভালোবাসা এবং সহযোগিতাই "আমরা ক'জন" টিমকে কনকনে শীতের রাতেও মানুষের দ্বারে দ্বারে পৌঁছে যাওয়ার সাহস যোগায়। আসুন, আমরা সবাই মিলে এই শীতে কারো না কারো উষ্ণতার কারণ হই।</p>
+            <div class="closing-buttons">
+                <!-- বাটন ও ট্যাগ ওভারল্যাপ এখানে ফিক্স করা হয়েছে -->
+                <button onclick="openDonationModal()" class="donate-btn-nav"><i class="fa-solid fa-hand-holding-dollar"></i> উষ্ণতা ছড়িয়ে দিন</button>
+                <a href="index.html#contact" class="contact-now-btn"><i class="fa-solid fa-envelope"></i> যোগাযোগ করুন</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+    <!-- উইন্টার ফুটার সেকশন -->
+    <footer class="winter-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>আমরা ক'জন</h3>
+                <p>মানবতার সেবায় উৎসজ্ঞীকৃত একটি গ্রাম্য সামাজিক সংস্থা। আমরা আমাদের চারপাশের সুবিধাবঞ্চিত মানুষের মুখে হাসি ফোটাতে নিরলস কাজ করে যাচ্ছি।</p>
+            </div>
+            <div class="footer-links">
+                <h4>প্রয়োজনীয় লিংক</h4>
+                <ul>
+                    <li><a href="index.html#home"><i class="fa-solid fa-chevron-right"></i> হোমপেজ</a></li>
+                    <li><a href="index.html#activities"><i class="fa-solid fa-chevron-right"></i> কার্যক্রমসমূহ</a></li>
+                    <li><a href="index.html#teams"><i class="fa-solid fa-chevron-right"></i> আমাদের টিম</a></li>
+                    <li><a href="index.html#donation"><i class="fa-solid fa-chevron-right"></i> অনুদান</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>যোগাযোগের ঠিকানা</h4>
+                <p><i class="fa-solid fa-location-dot"></i> এরেণ্ডাবাড়ী, গাইবান্ধা, রংপুর, বাংলাদেশ</p>
+                <p><i class="fa-solid fa-phone"></i> 01758458604</p>
+                <p><i class="fa-solid fa-envelope"></i> alimranhasanjibon06284@gmail.com</p> <!-- ভুল p ট্যাগ ফিক্সড -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; ২০২৬ আমরা ক'জন। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <!-- ডোনেশন পপ-আপ মোডাল (Donation Modal) -->
+    <div id="donationModal" class="modal-overlay">
+        <div class="modal-box">
+            <!-- পপ-আপ বন্ধ করার ক্রস বাটন -->
+            <button class="close-modal-btn" onclick="closeDonationModal()">&times;</button>
+            
+            <div class="modal-header">
+                <i class="fa-solid fa-heart-circle-check"></i>
+                <h3>মানবতার কল্যাণে এগিয়ে আসুন</h3>
+                <p>আপনার পাঠানো সামান্য অনুদান অসহায় মানুষের মুখে হাসি ফোটাতে পারে। নিচের যেকোনো নম্বরে আপনার সাহায্য পাঠাতে পারেন।</p>
+            </div>
+
+            <div class="payment-methods">
+                <!-- বিকাশ অ্যাকাউন্ট কার্ড -->
+                <div class="payment-card bkash">
+                    <div class="payment-logo">
+                        <span>বিকাশ (Personal)</span>
+                    </div>
+                    <div class="number-area">
+                        <span class="phone-number" id="bkashNumber">01758458604</span> 
+                        <div class="action-btns">
+                            <a href="tel:*247*" class="direct-pay-btn"><i class="fa-solid fa-mobile-screen"></i> সরাসরি পাঠান</a>
+                            <button class="copy-btn" onclick="copyNumber('bkashNumber', this)"><i class="fa-regular fa-copy"></i> কপি</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- নগদ অ্যাকাউন্ট কার্ড -->
+                <div class="payment-card nagad">
+                    <div class="payment-logo">
+                        <span>নগদ (Personal)</span>
+                    </div>
+                    <div class="number-area">
+                        <span class="phone-number" id="nagadNumber">01758458604</span> 
+                        <div class="action-btns">
+                            <a href="tel:*167*" class="direct-pay-btn"><i class="fa-solid fa-mobile-screen"></i> সরাসরি পাঠান</a>
+                            <button class="copy-btn" onclick="copyNumber('nagadNumber', this)"><i class="fa-regular fa-copy"></i> কপি</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-text">
+                <p><i class="fa-solid fa-circle-info"></i> টাকা পাঠানোর পর দয়া করে আমাদের সাথে যোগাযোগ করুন।</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- মোডাল ওপেন, ক্লোজ এবং নম্বর কপি করার জাভাস্ক্রিপ্ট কোড -->
+    <script>
+    // মোডাল ওপেন করার সুনির্দিষ্ট ফাংশন
+    function openDonationModal() {
+        const modal = document.getElementById('donationModal');
+        if (modal) {
+            modal.classList.add('active');
+        }
+    }
+
+    // মোডাল বন্ধ করার ফাংশন
+    function closeDonationModal() {
+        const modal = document.getElementById('donationModal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    // মোডালের বাইরে ক্লিক করলে যেন বন্ধ হয়ে যায়
+    window.onclick = function(event) {
+        const modal = document.getElementById('donationModal');
+        if (event.target == modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    // নম্বর কপি করার ফাংশন
+    function copyNumber(elementId, button) {
+        const numberText = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(numberText).then(() => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fa-solid fa-check"></i> কপিড!';
+            button.style.backgroundColor = '#10b981';
+            button.style.borderColor = '#10b981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = '';
+                button.style.borderColor = '';
+            }, 2000);
+        }).catch(err => {
+            console.error('কপি করা যায়নি: ', err);
+        });
+    }
+    </script>
+
+</body>
+</html>

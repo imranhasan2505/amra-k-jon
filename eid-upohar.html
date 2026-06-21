@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ঈদ উপহার - আমরা ক'জন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="eid-upohar.css">
+    
+    <style>
+        /* মোডাল ডিফল্ট অবস্থায় লুকিয়ে থাকবে */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        /* যখন জাভাস্ক্রিপ্ট active ক্লাস যুক্ত করবে তখন শো করবে */
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* মোডাল বক্সের ভেতরের অ্যানিমেশন */
+        .modal-box {
+            transform: scale(0.8);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-nav">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> হোমপেজে ফিরে যান</a>
+    </div>
+
+    <section class="eid-header">
+        <h1>আমাদের <span class="highlight">ঈদ উপহার</span> কার্যক্রম সমূহ</h1>
+        <p>বিগত বছরগুলোতে আমাদের করা সকল ঈদ পুনর্মিলনী, খাদ্য সামগ্রী ও পোশাক বিতরণ কর্মসূচীর গ্যালারি এবং বিস্তারিত বিবরণ নিচে দেওয়া হলো।</p>
+    </section>
+
+    <section class="eid-gallery-section">
+        <div class="post-container">
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic1.jpg" alt="ঈদ সামগ্রী ২০২৬">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-gift"></i> রমজান ও ঈদ-উল-ফিতর ২০২৬</span>
+                    <h3>অসহায় ১৩ টি পরিবারকে ঈদ সামগ্রী ও সেমাই-চিনি বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। ক্ষুদ্র আয়োজনে ১৩ টি পরিবারের কাছে আমরা ক'জনের পক্ষ থেকে ঈদ উপহার পৌঁছিয়ে দেয়া হয়েছে।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic2.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-shirt"></i> ঈদুল ফিতর ২০২৫</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>আমরা ক'জনের আয়োজনে ৪৫ টি অসহায় পরিবারের মাঝে ইদ উপহার প্রদান করা হয়। উপহার প্যাকেজে ছিল লাচ্চা, চিনি, তেল, পোলাও চাল, সাবান এবং গুড়া দুধ। যারা আমাদেরকে সহযোগিতার হাত বাড়িয়ে দিয়ে আয়োজনকে সফল করেছেন তাদেরকে ধন্যবাদসহ কৃতজ্ঞতা জানাচ্ছি।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic3.jpg" alt="ইফতার আয়োজনের স্থিরচিত্র।">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-bowl-rice"></i> রমজান ২০২৫</span>
+                    <h3>ইফতার আয়োজনের স্থিরচিত্র।</h3>
+                    <p>আমরা ক'জনের আয়োজনে ২৮ই মার্চ অনুষ্ঠিত হওয়া ইফতার আয়োজনের স্থিরচিত্র। আমরা প্রায় ৩০০ এর অধিক রোজাদারের জন্য ইফতারের ব্যবস্থা করতে পেরেছিলাম।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic4.jpg" alt="ঈদের উপহার বিতরণ">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-cow"></i> ঈদুল আজহা 2024</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। ২৬ জন অসহায় মানুষের মাঝে ইদের খুশি ভাগাভাগি করার সৌভাগ্য হয়েছে। ধন্যবাদ ও কৃতজ্ঞতা জানাই আমরা ক'জনের প্রতিটি কর্মী ও শুভাকাঙ্ক্ষীদের যাদের আর্থিক, মানসিক সহযোগিতায় আয়োজনটি সুন্দরভাবে সম্পন্ন হয়েছে।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="e.jpg" alt="ইফতার আয়োজনের স্থিরচিত্র।">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-bowl-rice"></i> রমজান ২০২৪</span>
+                    <h3>ইফতার আয়োজনের স্থিরচিত্র।</h3>
+                    <p>আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে প্রায় ১৫০ টি পরিবারের মাঝে ইফতার বিতরণ কর্মসূচি সম্পন্ন হয়েছে। আর্থিকভাবে, মানসিকভাবে যারা আমাদের সহযোগিতা করেছেন তাদের প্রতি আমরা কৃতজ্ঞ। ইনশাআল্লাহ, আগামীকাল ইদ উপহার বিতরণ করা হবে।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic6.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-shirt"></i> ঈদুল ফিতর 2023</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। ছুম্মা আলহামদুলিল্লাহ। একদল তরুণের অক্লান্ত পরিশ্রমের পর সফলভাবে ৩০ টি অসহায় পরিবারের মাঝে ইদ উপহার বিতরণ সম্পন্ন। যারা সহযোগিতা করেছেন তাদের ধন্যবাদ দেবার ভাষা আমাদের কাছে নেই। আল্লাহ আপনাদের রিজিকে বারাকাহ দান করুক।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic7.jpg" alt="ইফতার আয়োজনের স্থিরচিত্র।">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-mosque"></i> রমজান ২০২৩</span>
+                    <h3>ইফতার আয়োজনের স্থিরচিত্র।</h3>
+                    <p>ত্যাগ মহিমায় খুশির পরশ, পৌঁছে যাবে প্রভুর আরশ। আলহামদুলিল্লাহ। ছুম্মা আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে ইফতার ও দোয়া মাহফিল সম্পন্ন। যারা আর্থিক, কায়িক, মেধা দিয়ে আমাদের সহযোগিতা করেছেন তাদের প্রতি আমরা কৃতজ্ঞ।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic8.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-cow"></i> ঈদুল আজহা 2022</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। ইদের খুশিকে ছড়িয়ে দিতে আমরা ক'জন এর আয়োজনে ইদ উপহার বিতরণ সম্পন্ন হয়েছে। কিছু মানুষের মুখে হাসি ফোটাতে পেরেছি এটাই আমাদের সার্থকতা। ৩৫ টি পরিবারের কাছে পৌঁছে দিয়েছি আমাদের উপহার।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic9.jpg" alt="ইফতার আয়োজনের স্থিরচিত্র।">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-bowl-rice"></i> রমজান ২০২২</span>
+                    <h3>ইফতার আয়োজনের স্থিরচিত্র।</h3>
+                    <p>অদ্য ২৯ ই রমজান, রোজ:-রবিবার, মাস্টারপাড়া যুব সমাজ ও মাস্টারপাড়া জামে মসজিদ এর আয়োজনে ইফতার ও দোয়া মাহফিল অনুষ্ঠিত হয়।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic10.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-shirt"></i> ঈদুল ফিতর 2022</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>আলহামদুলিল্লাহ। ইদের খুশিকে ছড়িয়ে দিতে আমরা ক'জন এর আয়োজনে ইদ উপহার বিতরণ সম্পন্ন হয়েছে। ১৫ টি পরিবারের কাছে ইদ উপহার প্রদান করা হয়েছে।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic11.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-shirt"></i> ঈদুল ফিতর 2021</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>করোনায় স্থবির সবকিছু।局部 থেমে নেই একদল তরুণ। কিছু মানুষের সহযোগিতা আর আমাদের ক্ষুদ্র চেষ্টায় ২৫ টি পরিবারের কাছে পৌছে দিয়েছি সামান্য ভালবাসা (ইদ উপহার)। সকলের কাছে দোয়া প্রার্থী যেন আমাদের ছোট্ট সংস্থাটি আরো বড় হয়।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic12.jpg" alt="ঈদ সামগ্রী">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-cow"></i> ঈদুল আজহা 2021</span>
+                    <h3>ঈদের উপহার বিতরণ</h3>
+                    <p>'একটুখানি হাত বাড়িয়ে ইদের খুশি দেই ছড়িয়ে।' আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে কিছু পরিবারের মাঝে ইদ সামগ্রী বিতরণ করা হয়।</p>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-img">
+                    <img src="eid-upohar pic13.jpg" alt="ইফতার আয়োজনের স্থিরচিত্র।">
+                </div>
+                <div class="post-info">
+                    <span class="post-date"><i class="fa-solid fa-mosque"></i> রমজান ২০২১</span>
+                    <h3>ইফতার আয়োজনের স্থিরচিত্র।</h3>
+                    <p>আলহামদুলিল্লাহ। ছুম্মা আলহামদুলিল্লাহ। আমরা ক'জন এর আয়োজনে মাস্টারপাড়া জামে মসজিদ এ ইফতার মাহফিল অনুষ্ঠিত হয়। এছাড়া প্রায় ৩০ টি পরিবারে বিতরণ হয় ইফতার।</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="eid-closing-section">
+        <div class="closing-content">
+            <div class="heart-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <h2>ঈদের আনন্দ ছড়িয়ে পড়ুক সবার মাঝে</h2>
+            <p>আমাদের এই ক্ষুদ্র প্রয়াস তখনই সফল হয়, যখন আমরা কোনো অবহেলিত শিশুর মুখে এক চিলতে হাসি ফুটিয়ে তুলতে পারি কিংবা কোনো অসহায় মায়ের হাতে ঈদের উপহার তুলে দিতে পারি। "আমরা ক'জন" সামাজিক সংগঠন কোনো বাণিজ্যিক উদ্দেশ্যে নয়, বরং সম্পূর্ণ নিঃস্বার্থভাবে মানুষের কল্যাণে কাজ করে যাচ্ছে।</p>
+            <div class="closing-buttons">
+                <button onclick="openDonationModal()" class="donate-btn-nav"><i class="fa-solid fa-hand-holding-dollar"></i> সহযোগিতা করুন</button>
+                <a href="index.html#contact" class="contact-now-btn"><i class="fa-solid fa-envelope"></i> যোগাযোগ করুন</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="eid-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>আমরা ক'জন</h3>
+                <p>মানবতার সেবায় উৎসর্গীকৃত একটি সামাজিক সংস্থা। আমরা আমাদের চারপাশের সুবিধাবঞ্চিত মানুষের মুখে হাসি ফোটাতে এবং একটি আদর্শ সমাজ গঠনে নিরলস কাজ করে যাচ্ছি。</p>
+            </div>
+            <div class="footer-links">
+                <h4>প্রয়োজনীয় লিংক</h4>
+                <ul>
+                    <li><a href="index.html#home"><i class="fa-solid fa-chevron-right"></i> হোমপেজ</a></li>
+                    <li><a href="index.html#activities"><i class="fa-solid fa-chevron-right"></i> আমাদের কার্যক্রম</a></li>
+                    <li><a href="index.html#teams"><i class="fa-solid fa-chevron-right"></i> আমাদের টিম</a></li>
+                    <li><a href="index.html#donation"><i class="fa-solid fa-chevron-right"></i> ফান্ডিং/অনুদান</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>যোগাযোগের ঠিকানা</h4>
+                <p><i class="fa-solid fa-location-dot"></i> এরেণ্ডাবাড়ী, গাইবান্ধা, বাংলাদেশ</p>
+                <p><i class="fa-solid fa-phone"></i> 01764369104</p>
+                <p><i class="fa-solid fa-envelope"></i> alimranhasanjibon06284</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; ২০২৬ আমরা ক'জন। সর্বস্বত্ব সংরক্ষিত। | ডিজাইন ও ডেভেলপমেন্ট করেছেন ক'জন টিম।</p>
+        </div>
+    </footer>
+
+    <div id="donationModal" class="modal-overlay">
+        <div class="modal-box">
+            <button class="close-modal-btn" onclick="closeDonationModal()">&times;</button>
+            
+            <div class="modal-header">
+                <i class="fa-solid fa-heart-circle-check"></i>
+                <h3>মানবতার কল্যাণে এগিয়ে আসুন</h3>
+                <p>আপনার পাঠানো সামান্য অনুদান অসহায় মানুষের মুখে হাসি ফোটাতে পারে। নিচের যেকোনো নম্বরে আপনার সাহায্য পাঠাতে পারেন।</p>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-card bkash">
+                    <div class="payment-logo">
+                        <span>বিকাশ (Personal)</span>
+                    </div>
+                    <div class="number-area">
+                        <span class="phone-number" id="bkashNumber">01758458604</span> 
+                        <div class="action-btns">
+                            <a href="tel:*247*" class="direct-pay-btn"><i class="fa-solid fa-mobile-screen"></i> সরাসরি পাঠান</a>
+                            <button class="copy-btn" onclick="copyNumber('bkashNumber', this)"><i class="fa-regular fa-copy"></i> কপি</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-card nagad">
+                    <div class="payment-logo">
+                        <span>নগদ (Personal)</span>
+                    </div>
+                    <div class="number-area">
+                        <span class="phone-number" id="nagadNumber">01758458604</span> 
+                        <div class="action-btns">
+                            <a href="tel:*167*" class="direct-pay-btn"><i class="fa-solid fa-mobile-screen"></i> সরাসরি পাঠান</a>
+                            <button class="copy-btn" onclick="copyNumber('nagadNumber', this)"><i class="fa-regular fa-copy"></i> কপি</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-text">
+                <p><i class="fa-solid fa-circle-info"></i> টাকা পাঠানোর পর দয়া করে আমাদের সাথে যোগাযোগ করুন।</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openDonationModal() {
+        const modal = document.getElementById('donationModal');
+        if (modal) {
+            modal.classList.add('active');
+        }
+    }
+
+    function closeDonationModal() {
+        const modal = document.getElementById('donationModal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    // মোডালের বাইরে ব্যাকগ্রাউন্ডে ক্লিক করলে মোডাল বন্ধ হবে
+    window.onclick = function(event) {
+        const modal = document.getElementById('donationModal');
+        if (event.target == modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    // নম্বর কপি করার নিখুঁত কোড
+    function copyNumber(elementId, button) {
+        const numberText = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(numberText).then(() => {
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fa-solid fa-check"></i> কপিড!';
+            button.style.backgroundColor = '#10b981';
+            button.style.borderColor = '#10b981';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = '';
+                button.style.borderColor = '';
+            }, 2000);
+        }).catch(err => {
+            console.error('কপি করা যায়নি: ', err);
+        });
+    }
+    </script>
+
+</body>
+</html>

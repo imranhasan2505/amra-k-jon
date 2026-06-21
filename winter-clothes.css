@@ -1,0 +1,661 @@
+/* ==========================================================================
+   ১. গ্লোবাল রিসেট এবং উইন্টার থিম সেটআপ (Global Setup)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hind Siliguri', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+/* কাস্টম স্ক্রোলবার */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 5px;
+}
+
+/* ==========================================================================
+   ২. টপ নেভিগেশন বার (Sticky Navigation)
+   ========================================================================== */
+.back-nav {
+    padding: 15px 5%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.back-btn i {
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+    border-color: transparent;
+    transform: scale(1.05);
+}
+
+.back-btn:hover i {
+    transform: translateX(-5px);
+}
+
+/* ==========================================================================
+   ৩. গর্জিয়াস উইন্টার হেডার (Hero Section with Entry Animation)
+   ========================================================================== */
+.winter-header {
+    padding: 100px 20px 80px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12) 0%, transparent 75%), #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    animation: dropDownHeader 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.winter-header h1 {
+    font-size: 48px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.winter-header .highlight {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+/* হেডারের লেখার নিচে একটা গর্জিয়াস উইন্টার গ্লো */
+.winter-header .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+.winter-header p {
+    color: #64748b;
+    max-width: 750px;
+    margin: 15px auto 0 auto;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   ৪. গ্যালারি গ্রিড এবং প্রিমিয়াম ৩ডি কার্ডস (Card Grid & Animations)
+   ========================================================================== */
+.winter-gallery-section {
+    padding: 80px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 40px;
+}
+
+/* রেডিমেড ৩ডি কার্ড ও ওয়াও এন্ট্রান্স অ্যানিমেশন */
+.post-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* শুরুতে হাইড থাকবে, অ্যানিমেশন দিয়ে শো হবে */
+    transform: translateY(40px);
+    animation: CardFlyIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* প্রতিটি কার্ড একের পর এক স্টাইলিশভাবে ভেসে উঠবে (Staggered Animation Delay) */
+.post-card:nth-child(1) { animation-delay: 0.1s; }
+.post-card:nth-child(2) { animation-delay: 0.2s; }
+.post-card:nth-child(3) { animation-delay: 0.3s; }
+.post-card:nth-child(4) { animation-delay: 0.4s; }
+.post-card:nth-child(5) { animation-delay: 0.5s; }
+.post-card:nth-child(6) { animation-delay: 0.6s; }
+
+.post-img {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.post-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ইমেজের ওপর মডার্ন ব্লু ওভারলে এফেক্ট */
+.post-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(15, 23, 42, 0.4));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* 🚀 চোখের পলকে ৩ডি হোভার অ্যানিমেশন */
+.post-card:hover {
+    transform: translateY(-15px) scale(1.02) rotateX(1deg);
+    box-shadow: 0 35px 60px rgba(37, 99, 235, 0.15), 0 10px 20px rgba(0, 0, 0, 0.02);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.post-card:hover .post-img img {
+    transform: scale(1.12) rotate(1deg); /* ছবি জুম এবং হালকা বাঁকা হবে */
+}
+
+.post-card:hover .post-img::after {
+    opacity: 1;
+}
+
+.post-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* ক্রিয়েটিভ ডেট ব্যাজ অ্যানিমেশন */
+.post-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.05) 100%);
+    color: #2563eb;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 13.5px;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 18px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    transition: transform 0.4s ease;
+}
+
+.post-card:hover .post-date {
+    transform: translateX(5px); /* হোভার করলে ব্যাজ ডানে সরবে */
+}
+
+.post-info h3 {
+    font-size: 22px;
+    color: #0f172a;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    transition: color 0.3s ease, transform 0.4s ease;
+}
+
+.post-card:hover .post-info h3 {
+    color: #2563eb;
+    transform: translateX(5px); /* হেডিংও ডানে সরবে */
+}
+
+.post-info p {
+    font-size: 15px;
+    color: #475569;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   ৫. ইমোশনাল সমাপনী বার্তা (Closing Note Section)
+   ========================================================================== */
+.winter-closing-section {
+    padding: 110px 5%;
+    background-color: #ffffff;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+
+.closing-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* অটোমেটিক লাইভ স্পিনিং স্নো-ফ্লেক */
+.closing-content .snowflake-icon {
+    font-size: 55px;
+    color: #60a5fa;
+    margin-bottom: 22px;
+    display: inline-block;
+    animation: spinSnow 10s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(96, 165, 250, 0.5));
+}
+
+.closing-content h2 {
+    font-size: 38px;
+    color: #0f172a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.closing-content p {
+    color: #475569;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 45px;
+}
+
+.closing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* 🎯 বাটন ফিক্স ও জীবন্ত পালস অ্যানিমেশন */
+.donate-btn-nav, .contact-now-btn {
+    text-decoration: none;
+    padding: 15px 38px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.donate-btn-nav {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+    animation: buttonPulse 2s infinite; /* বাটনটি লাইভ পাম্প করতে থাকবে */
+}
+
+.donate-btn-nav i {
+    transition: transform 0.4s ease;
+}
+
+.donate-btn-nav:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 20px 35px rgba(37, 99, 235, 0.45);
+    animation: none; /* হোভার করলে কাঁপা বন্ধ হবে */
+}
+
+.donate-btn-nav:hover i {
+    transform: rotate(360deg) scale(1.2); /* আইকনটি ঘুরবে */
+}
+
+.contact-now-btn {
+    background-color: #f1f5f9;
+    color: #475569 !important;
+    border: 1px solid #e2e8f0;
+}
+
+.contact-now-btn:hover {
+    background-color: #e2e8f0;
+    color: #0f172a !important;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   ৬. প্রিমিয়াম ডার্ক ফুটার (Dark Luxury Footer)
+   ========================================================================== */
+.winter-footer {
+    background-color: #090d16;
+    color: #94a3b8;
+    padding: 90px 5% 30px 5%;
+}
+
+.footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 45px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-about h3, .footer-links h4, .footer-contact h4 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    width: fit-content;
+}
+
+.footer-about h3::after, .footer-links h4::after, .footer-contact h4::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 2px;
+}
+
+.footer-about p {
+    line-height: 1.8;
+    font-size: 14.5px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 14px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 14.5px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: #3b82f6;
+    transform: translateX(8px); /* মেনু একটু বেশি ডানদিকে সরবে */
+}
+
+.footer-contact p {
+    margin-bottom: 16px;
+    font-size: 14.5px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-contact i {
+    color: #3b82f6;
+    font-size: 16px;
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* ==========================================================================
+   Animation Keyframes (অ্যানিমেশনের জাদুঘর)
+   ========================================================================== */
+@keyframes spinSnow {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dropDownHeader {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes CardFlyIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes buttonPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+/* ==========================================================================
+   ৭. সম্পূর্ণ আধুনিক রেসপন্সিভনেস (Mobile, Tablet & Small Screen Fixes)
+   ========================================================================== */
+
+/* ১. বড় স্ক্রিনের ট্যাবলেট ও ছোট ল্যাপটপ (Tablets & Small Laptops) */
+@media (max-width: 1024px) {
+    .winter-gallery-section {
+        padding: 60px 4%;
+    }
+    .post-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+}
+
+/* ২. ছোট ট্যাবলেট ও পোর্ট্রেট ভিউ (Portrait Tablets & iPad Screen) */
+@media (max-width: 768px) {
+    /* হেডার সেকশন ফিক্স */
+    .winter-header { 
+        padding: 70px 20px 50px 20px; 
+    }
+    .winter-header h1 { 
+        font-size: 34px; 
+    }
+    .winter-header p { 
+        font-size: 16px; 
+        line-height: 1.7;
+    }
+
+    /* গ্যালারি গ্রিড ফিক্স */
+    .post-container { 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px; 
+    }
+    .post-img {
+        height: 220px;
+    }
+    .post-info {
+        padding: 22px;
+    }
+    .post-info h3 {
+        font-size: 20px;
+    }
+
+    /* সমাপনী বার্তা */
+    .winter-closing-section {
+        padding: 70px 5%;
+    }
+    .closing-content h2 { 
+        font-size: 28px; 
+    }
+    .closing-content p {
+        font-size: 15.5px;
+        margin-bottom: 30px;
+    }
+
+    /* ফুটার ফিক্স (সবগুলো ১ কলামে আসবে) */
+    .footer-container { 
+        grid-template-columns: 1fr; 
+        gap: 35px; 
+        padding-bottom: 30px;
+    }
+}
+
+/* ৩. স্ট্যান্ডার্ড এবং ছোট সাইজের স্মার্টফোন (Standard Mobile Screen Fix) */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* টপ নেভিগেশন বার ফিক্স */
+    .back-nav {
+        padding: 12px 15px;
+        display: flex;
+        justify-content: center;
+    }
+    .back-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* গর্জিয়াস উইন্টার হেডার মোবাইল ফিক্স */
+    .winter-header {
+        padding: 50px 15px 40px 15px;
+    }
+    .winter-header h1 {
+        font-size: 26px;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+    .winter-header p {
+        font-size: 14.5px;
+        line-height: 1.6;
+    }
+
+    /* গ্যালারি ও কার্ড মোবাইল ফিক্স */
+    .winter-gallery-section {
+        padding: 40px 15px;
+    }
+    .post-container {
+        grid-template-columns: 1fr; /* মোবাইলে সিঙ্গেল কলাম */
+        gap: 20px;
+    }
+    .post-card {
+        border-radius: 16px;
+        transform: translateY(0); 
+        animation: CardFlyIn 0.6s ease-out forwards;
+    }
+    .post-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(37, 99, 235, 0.1);
+    }
+    .post-img {
+        height: 200px;
+    }
+    .post-info {
+        padding: 20px;
+    }
+    .post-info h3 {
+        font-size: 18.5px;
+    }
+    .post-info p {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: left;
+    }
+    .post-date {
+        padding: 4px 14px;
+        font-size: 12.5px;
+        margin-bottom: 14px;
+    }
+
+    /* সমাপনী বার্তা ও বাটন মোবাইল ফিক্স */
+    .winter-closing-section {
+        padding: 50px 15px;
+    }
+    .closing-content .snowflake-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+    .closing-content h2 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+    .closing-content p {
+        font-size: 14.5px;
+        line-height: 1.6;
+    }
+    
+    .closing-buttons {
+        flex-direction: column; /* বাটন দুটি একটার নিচে আরেকটা আসবে */
+        gap: 12px;
+        width: 100%;
+    }
+    .donate-btn-nav, .contact-now-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    /* ফুটার মোবাইল ফিক্স */
+    .winter-footer {
+        padding: 50px 20px 20px 20px;
+    }
+    .footer-container {
+        gap: 25px;
+    }
+    .footer-about h3, .footer-links h4, .footer-contact h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .footer-contact p, .footer-links a, .footer-about p {
+        font-size: 13.5px;
+        line-height: 1.6;
+    }
+    .footer-bottom {
+        padding-top: 20px;
+        font-size: 12.5px;
+    }
+}
+
+
